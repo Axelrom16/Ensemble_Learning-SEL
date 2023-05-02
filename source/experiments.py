@@ -71,8 +71,8 @@ for dataset in datasets:
     print("Data set:", dataset['name'])
     print("###########")
 
-    tree_file_rules = open('results/' + dataset['name'] + '/rf/' + dataset['name'] + '_trees_rf_rules.txt', "w")
-    tree_file = open('results/' + dataset['name'] + '/rf/' + dataset['name'] + '_trees_rf.txt', "w")
+    tree_file_rules = open('../results/' + dataset['name'] + '/rf/' + dataset['name'] + '_trees_rf_rules.txt', "w")
+    tree_file = open('../results/' + dataset['name'] + '/rf/' + dataset['name'] + '_trees_rf.txt', "w")
     nt_vec = []
     f_vec = []
     acc_vec = []
@@ -125,14 +125,14 @@ for dataset in datasets:
 
     df_dict = {'nt': nt_vec, 'nf': f_vec, 'train_acc': train_acc_vec, 'acc': acc_vec, 'time': time_vec}
     df = pd.DataFrame.from_dict(df_dict)
-    df.to_csv('results/' + dataset['name'] + '/rf/' + dataset['name'] + '_params_rf.csv', index=False)
+    df.to_csv('../results/' + dataset['name'] + '/rf/' + dataset['name'] + '_params_rf.csv', index=False)
 
     for f in dataset['nf_rf']:
         plt.plot(df[df['nf'] == f]['nt'], df[df['nf'] == f]['acc'], label='NF = {}'.format(str(f)))
     plt.xlabel('Number of trees')
     plt.ylabel('Accuracy')
     plt.legend()
-    plt.savefig('results/' + dataset['name'] + '/rf/' + dataset['name'] + '_params_rf.svg')
+    plt.savefig('../results/' + dataset['name'] + '/rf/' + dataset['name'] + '_params_rf.svg')
     plt.clf()
 
     for f in dataset['nf_rf']:
@@ -140,7 +140,7 @@ for dataset in datasets:
     plt.xlabel('Number of trees')
     plt.ylabel('Execution time')
     plt.legend()
-    plt.savefig('results/' + dataset['name'] + '/rf/' + dataset['name'] + '_params_rf_time.svg')
+    plt.savefig('../results/' + dataset['name'] + '/rf/' + dataset['name'] + '_params_rf_time.svg')
     plt.clf()
 
     tree_file.close()
@@ -156,8 +156,8 @@ for dataset in datasets:
     print("Data set:", dataset['name'])
     print("###########")
 
-    tree_file_rules = open('results/' + dataset['name'] + '/df/' + dataset['name'] + '_trees_df_rules.txt', "w")
-    tree_file = open('results/' + dataset['name'] + '/df/' + dataset['name'] + '_trees_df.txt', "w")
+    tree_file_rules = open('../results/' + dataset['name'] + '/df/' + dataset['name'] + '_trees_df_rules.txt', "w")
+    tree_file = open('../results/' + dataset['name'] + '/df/' + dataset['name'] + '_trees_df.txt', "w")
     nt_vec = []
     f_vec = []
     acc_vec = []
@@ -210,14 +210,14 @@ for dataset in datasets:
 
     df_dict = {'nt': nt_vec, 'nf': f_vec, 'train_acc': train_acc_vec, 'acc': acc_vec, 'time': time_vec}
     df = pd.DataFrame.from_dict(df_dict)
-    df.to_csv('results/' + dataset['name'] + '/df/' + dataset['name'] + '_params_df.csv', index=False)
+    df.to_csv('../results/' + dataset['name'] + '/df/' + dataset['name'] + '_params_df.csv', index=False)
 
     for f in dataset['nf_df']:
         plt.plot(df[df['nf'] == f]['nt'], df[df['nf'] == f]['acc'], label='NF = {}'.format(str(f)))
     plt.xlabel('Number of trees')
     plt.ylabel('Accuracy')
     plt.legend()
-    plt.savefig('results/' + dataset['name'] + '/df/' + dataset['name'] + '_params_df.svg')
+    plt.savefig('../results/' + dataset['name'] + '/df/' + dataset['name'] + '_params_df.svg')
     plt.clf()
 
     for f in dataset['nf_df']:
@@ -225,7 +225,7 @@ for dataset in datasets:
     plt.xlabel('Number of trees')
     plt.ylabel('Execution time')
     plt.legend()
-    plt.savefig('results/' + dataset['name'] + '/df/' + dataset['name'] + '_params_df_time.svg')
+    plt.savefig('../results/' + dataset['name'] + '/df/' + dataset['name'] + '_params_df_time.svg')
     plt.clf()
 
     tree_file.close()

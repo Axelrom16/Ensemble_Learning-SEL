@@ -45,7 +45,7 @@ class RandomForestClassifier:
         Import the data set using the dataset_name parameter, process the data and perform the train/test split
         :return:
         """
-        data = pd.read_csv('./data/' + self.name + '.csv', na_values=['?'])
+        data = pd.read_csv('../data/' + self.name + '.csv', na_values=['?'])
 
         # Missing data
         if data.isnull().values.any():
@@ -93,7 +93,7 @@ class RandomForestClassifier:
             self.nf = self.X.shape[1] - 1
 
         # Write info data
-        results_file = open("results/" + self.name + "/rf/train_" + self.name + ".txt", "w")
+        results_file = open("../results/" + self.name + "/rf/train_" + self.name + ".txt", "w")
         self.out_file = results_file
         self.out_file.write("#-------\n")
         self.out_file.write("Data\n")
@@ -149,10 +149,10 @@ class RandomForestClassifier:
         plt.ylabel('True Label')
         plt.xlabel('Predicted Label')
         plt.tight_layout()
-        plt.savefig("results/" + self.name + "/rf/cm_" + self.name + "_nt" + str(self.n_estimators) + "_nf" + str(self.nf) + ".svg")
+        plt.savefig("../results/" + self.name + "/rf/cm_" + self.name + "_nt" + str(self.n_estimators) + "_nf" + str(self.nf) + ".svg")
         plt.clf()
         # Classification report
-        with open("results/" + self.name + "/rf/report_" + self.name + "_nt" + str(self.n_estimators) + "_nf" + str(self.nf) + ".txt", 'w') as f:
+        with open("../results/" + self.name + "/rf/report_" + self.name + "_nt" + str(self.n_estimators) + "_nf" + str(self.nf) + ".txt", 'w') as f:
             f.write(classification_report(list(y), pred, target_names=target_names))
 
         return acc_train, acc
@@ -230,7 +230,7 @@ class DecisionForestClassifier:
         Import the data set using the dataset_name parameter, process the data and perform the train/test split
         :return:
         """
-        data = pd.read_csv('./data/' + self.name + '.csv', na_values=['?'])
+        data = pd.read_csv('../data/' + self.name + '.csv', na_values=['?'])
 
         # Missing data
         if data.isnull().values.any():
@@ -278,7 +278,7 @@ class DecisionForestClassifier:
             self.nf = self.X.shape[1] - 1
 
         # Write info data
-        results_file = open("results/" + self.name + "/df/train_" + self.name + ".txt", "w")
+        results_file = open("../results/" + self.name + "/df/train_" + self.name + ".txt", "w")
         self.out_file = results_file
         self.out_file.write("#-------\n")
         self.out_file.write("Data\n")
@@ -339,10 +339,10 @@ class DecisionForestClassifier:
         plt.ylabel('True Label')
         plt.xlabel('Predicted Label')
         plt.tight_layout()
-        plt.savefig("results/" + self.name + "/df/cm_" + self.name + "_nt" + str(self.n_estimators) + "_nf" + str(self.nf) + ".svg")
+        plt.savefig("../results/" + self.name + "/df/cm_" + self.name + "_nt" + str(self.n_estimators) + "_nf" + str(self.nf) + ".svg")
         plt.clf()
         # Classification report
-        with open("results/" + self.name + "/df/report_" + self.name + "_nt" + str(self.n_estimators) + "_nf" + str(self.nf) + ".txt", 'w') as f:
+        with open("../results/" + self.name + "/df/report_" + self.name + "_nt" + str(self.n_estimators) + "_nf" + str(self.nf) + ".txt", 'w') as f:
             f.write(classification_report(list(y), pred, target_names=target_names))
 
         return acc_train, acc
